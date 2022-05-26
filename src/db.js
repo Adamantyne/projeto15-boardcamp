@@ -1,15 +1,16 @@
-import chalk from "chalk";
-import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
+import pg from "pg";
 
 dotenv.config();
+const {Pool}= pg;
 
-const mongoClient = new MongoClient(process.env.MONGO_URI);
-let db = null;
-try{
-    await mongoClient.connect();
-    db = mongoClient.db(process.env.DATABASE);
-}catch(e){
-    console.log(chalk.red("Deu ruim pra conectar meu querido: "+error));
-}
+const db = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    host: process.env.HOST,
+    port: process.env.PORT_DB,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE
+});
+
 export default db;
