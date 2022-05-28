@@ -1,10 +1,10 @@
 import Joi from "joi";
 
 import db from "../db.js";
+import { categoriesSchema } from "../untils/schemas.js";
 
 export default async function categoriesMiddle(req,res,next){
     const {name} = req.body;
-    const categoriesSchema = Joi.string().required();
     const validation = categoriesSchema.validate(name);
     if (validation.error) {
         return res.status(400).send(

@@ -18,7 +18,6 @@ export async function postCategories(req,res){
         const result = await db.query(
             'INSERT INTO categories (name) VALUES ($1);',[category]
         );
-        console.log(chalk.green(result));
         res.sendStatus(201);
     } catch (error) {
         console.log(chalk.red(error));
