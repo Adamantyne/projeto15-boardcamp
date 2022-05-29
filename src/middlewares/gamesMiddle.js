@@ -1,4 +1,3 @@
-import Joi from "joi";
 import chalk from "chalk";
 
 import db from "../db.js";

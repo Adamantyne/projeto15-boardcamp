@@ -10,7 +10,7 @@ export async function getGames(req,res){
         res.status(200).send(games);
     } catch (error) {
         console.log(chalk.red(error));
-        res.status(500).send("error getCategories");
+        res.status(500).send("error getGames");
     }
 }
 
@@ -24,6 +24,6 @@ export async function postGames(req,res){
         res.sendStatus(201);
     } catch (error) {
         console.log(chalk.red(error));
-        res.status(500).send("error postCategories");
+        res.status(500).send("error postGames");
     }
 }
