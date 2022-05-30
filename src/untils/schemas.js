@@ -14,3 +14,8 @@ export const customersSchema = Joi.object({
     cpf:Joi.string().length(11).pattern(/^[0-9]{11}$/).required(),
     birthday:Joi.date().required()
 });
+export const rentalsSchema= Joi.object({
+    customerId: Joi.number().integer().required(),
+    gameId: Joi.number().integer().required(),
+    daysRented: Joi.number().integer().min(1).required()
+});
